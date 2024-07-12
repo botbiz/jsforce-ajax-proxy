@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jsforce/1.9.1/jsforce.min.js"></script>
+        <script>
+            jsforce.browser.init({
+              clientId: '3MVG9A2kN3Bn17hupKuwBwf_o0ItONhSL8awaNH1qsbLIirlqob_.B1HXMbmMBXWnTQZxDCUAE7JRpAU.tgNu',
+              redirectUri: 'https://xalber-jsforce-ajax-proxy-2f1607af722b.herokuapp.com',
+              proxyUrl: 'https://xalber-jsforce-ajax-proxy-2f1607af722b.herokuapp.com/proxy/'
+            });
+            jsforce.browser.on('connect', function(conn) {
+                conn.query('SELECT Id, Name FROM Account', function(err, res) {
+                    if (err) { return console.error(err); }
+                    console.log(res);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <button onclick="javascript:jsforce.browser.login();">Login</button>
+    </body>
+    <body>
+        <button onclick="window.open(this.href,this.target,'menubar=0,resizable=1,width=400,height=200,left=0,top=0');return false;">Login v2</button>
+    </body>
+</html>
